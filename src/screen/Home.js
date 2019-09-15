@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlatList, SafeAreaView, StyleSheet, Text, TouchableOpacity, View, ActivityIndicator } from 'react-native';
+import { FlatList, SafeAreaView, StyleSheet, Text, TouchableOpacity, View, ActivityIndicator, NativeModules } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import { connect } from 'react-redux';
 import { getVenueList } from '../actions/HomeAction';
@@ -28,6 +28,7 @@ class Home extends React.Component {
 
     componentDidMount() {
         this.props.getVenueList();
+        NativeModules.Analytics.trackScreen();
     }
 
     onItemClick = () => {
