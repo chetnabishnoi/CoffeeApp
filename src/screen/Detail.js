@@ -66,14 +66,16 @@ class Detail extends React.Component {
     render() {
         const { venueData } = this.props
         return (
-            <SafeAreaView style={styles.container}>
-                {venueData.name && <ScrollView>
-                    <ViewPagerPage data={venueData.photos} />
-                    {this._renderName(venueData)}
-                    {this._renderMoreInfo(venueData)}
-                    {this._renderReviews()}
-                </ScrollView>}
-                {!venueData.name && <ActivityIndicator size="large" color={colors.orange} />}
+            <SafeAreaView style={{ flex: 1 }}>
+                <View style={styles.container}>
+                    {venueData.name && <ScrollView>
+                        <ViewPagerPage data={venueData.photos} />
+                        {this._renderName(venueData)}
+                        {this._renderMoreInfo(venueData)}
+                        {this._renderReviews()}
+                    </ScrollView>}
+                    {!venueData.name && <ActivityIndicator size="large" color={colors.orange} />}
+                </View>
             </SafeAreaView>
         )
     }
